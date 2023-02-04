@@ -131,13 +131,13 @@ class BaseDetector(object):
       detections.append(dets)
     
     results = self.merge_outputs(detections)
-
+    #MOD START
     for x in range (1, 81):
     	if x == 1 or x == 3 or x == 8 or x == 17 or x == 18:
     		pass
     	else:
     		results[x] = np.empty((0,5))
-
+    #MOD END
     torch.cuda.synchronize()
     end_time = time.time()
     merge_time += end_time - post_process_time
